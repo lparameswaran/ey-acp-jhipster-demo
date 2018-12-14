@@ -56,18 +56,27 @@ and running the client tests in a second terminal
     yarn run e2e
 ```
 
-# Step 8: Continuous Integration
+# Step 8: Code quality via sonar
 
-8a. Configure sonar installation -- see SonarQube.md for instructions
-8b. Run `jhipster ci-cd` (Note: jhipster supports multiple tools for CI-CD -- for now, choose the options below 
+8a. Bring up sonar docker
+`docker-compose -f src/main/docker/sonar.yml up -d`
+8b. Login to kitematic and ensure sonar docker is up
+8c. Run the tests with sonar qube configuration
+```html
+    ./mvnw -Pprod clean test sonar:sonar
+```
+8d. Verify in the UI... browse http://localhost:9000
+
+# Step 9: Continuous Integration
+
+9a. Configure sonar installation -- see SonarQube.md for instructions
+9b. Run `jhipster ci-cd` (Note: jhipster supports multiple tools for CI-CD -- for now, choose the options below 
     (Consult the [Setting up Continuous Integration][https://www.jhipster.tech/documentation-archive/v5.0.1/setting-up-ci/] page for more information).
+9c. Run the jenkins pipeline docker
+`docker-compose -f src/main/docker/jenkins.yml up -d`
 Jenkins pipeline
 Analyze code with sonar
-http://localhost:9011 as sonar server
-8c. Run the jenkins pipeline docker
-`docker-compose -f src/main/docker/jenkins.yml up -d`
-
-
+http://localhost:9000 as sonar server
 
 
 # [Appendix] 
