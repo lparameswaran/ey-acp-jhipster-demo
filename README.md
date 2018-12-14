@@ -15,59 +15,43 @@ This application was generated using JHipster 5.0.1, you can find documentation 
 
 # Step 1: Install required dependent packages
 ```html
-<code>
     yarn install
-</code>
 ```
 
 # Step 2: In One terminal window, run the server side
 ```html
-<code>
     ./mvnw
-</code>
 ```
 # Step 3: In another terminal window, run the client side
 ```html
-<code>
     yarn 
     yarn webpack:build
-</code>
 ```
 # Step 4: Run the app
 ```html
-<code>
     Navigate to [http://localhost:8080](http://localhost:8080) in your browser.
-</code>
 ```
 
 
 # Step 5: Server side Unit Testing
 ```html
 To launch your application's tests, run:
-<code>
     ./mvnw clean test
-</code>
 ```
 
 # Step 6: Client side Unit Testing
 ```html
 Unit tests are run by [Jest][] and written with [Jasmine][]. They're located in [src/test/javascript/](src/test/javascript/) and can be run with:
-<code>
     yarn test
-</code>
 ```
 
 # Step 7: UI End to end Testing
 ```html
 UI end-to-end tests are powered by [Protractor][], which is built on top of WebDriverJS. They're located in [src/test/javascript/e2e](src/test/javascript/e2e)
 and can be run by starting server side Spring Boot in one terminal 
-<code>
     ./mvnw spring-boot:run 
-</code>
 and running the client tests in a second terminal 
-<code>
     yarn run e2e
-</code>
 ```
 
 # Step 8: Continuous Integration
@@ -90,13 +74,11 @@ http://localhost:9011 as sonar server
 To optimize the blog application for production, run:
 ```html
 To concatenate and minify the client CSS and JavaScript files, run the following command. It will also modify `index.html` so it references these new files.
-<code>
     ./mvnw -Pprod clean package
-</code>
+```
+```html
 To ensure everything worked, run:
-<code>
     java -jar target/*.war
-</code>
 ```
 
 2. Dockerize
