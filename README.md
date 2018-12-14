@@ -1,127 +1,94 @@
 # blog
 This application was generated using JHipster 5.0.1, you can find documentation and help at [https://www.jhipster.tech/documentation-archive/v5.0.1](https://www.jhipster.tech/documentation-archive/v5.0.1).
 
-## Development
+## Development tool pre-requisites
 
-Before you can build this project, you must install and configure the following dependencies on your machine:
+1, [Java8][] Install Java 8 from Oracle (your computer probably already has Java 8 installed)
+2. [Git][] Install Git https://git-scm.com/
+3. [Node.js][] Install Node.js (use an LTS release) http://nodejs.org/
+4. [Yarn][] Install Yarn using the Yarn installation instructions Windows: https://yarnpkg.com/lang/en/docs/install/#windows-stable Mac: https://yarnpkg.com/lang/en/docs/install/#mac-stable/
+5. [Intellij][] Install IntelliJ IDEA IDE Community Edition https://www.jetbrains.com/idea/download
+6. [Maven][] Install Maven from https://www-us.apache.org/dist/maven/maven-3/3.6.0/binaries/apache-maven-3.6.0-bin.zip/
+7. [Docker][] Download the Docker Toolbox Windows: https://docs.docker.com/toolbox/toolbox_install_windows/ Mac: https://docs.docker.com/toolbox/toolbox_install_mac/
+8. [SonarQube][] Download SonarQube from https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-7.4.zip/
 
-1. [Node.js][]: We use Node to run a development web server and build the project.
-   Depending on your system, you can install Node either from source or as a pre-packaged bundle.
-2. [Yarn][]: We use Yarn to manage Node dependencies.
-   Depending on your system, you can install Yarn either from source or as a pre-packaged bundle.
 
-After installing Node, you should be able to run the following command to install development tools.
-You will only need to run this command when dependencies change in [package.json](package.json).
-
-    yarn install
-
-We use yarn scripts and [Webpack][] as our build system.
-
-Run the following commands in two separate terminals to create a blissful development experience where your browser
-auto-refreshes when files change on your hard drive.
-
-    ./mvnw
-    yarn start
-
-[Yarn][] is also used to manage CSS and JavaScript dependencies used in this application. You can upgrade dependencies by
-specifying a newer version in [package.json](package.json). You can also run `yarn update` and `yarn install` to manage dependencies.
-Add the `help` flag on any command to see how you can use it. For example, `yarn help update`.
-
-The `yarn run` command will list all of the scripts available to run for this project.
-
-### Service workers
-
-Service workers are commented by default, to enable them please uncomment the following code.
-
-* The service worker registering script in index.html
-
+# [Step 1] Install required dependent packages
 ```html
-<script>
-    if ('serviceWorker' in navigator) {
-        navigator.serviceWorker
-        .register('./service-worker.js')
-        .then(function() { console.log('Service Worker Registered'); });
-    }
-</script>
+<code>
+    yarn install
+</code>
 ```
 
-Note: workbox creates the respective service worker and dynamically generate the `service-worker.js`
-
-### Managing dependencies
-
-For example, to add [Leaflet][] library as a runtime dependency of your application, you would run following command:
-
-    yarn add --exact leaflet
-
-To benefit from TypeScript type definitions from [DefinitelyTyped][] repository in development, you would run following command:
-
-    yarn add --dev --exact @types/leaflet
-
-Then you would import the JS and CSS files specified in library's installation instructions so that [Webpack][] knows about them:
-Edit [src/main/webapp/app/vendor.ts](src/main/webapp/app/vendor.ts) file:
-~~~
-import 'leaflet/dist/leaflet.js';
-~~~
-
-Edit [src/main/webapp/content/css/vendor.css](src/main/webapp/content/css/vendor.css) file:
-~~~
-@import '~leaflet/dist/leaflet.css';
-~~~
-Note: there are still few other things remaining to do for Leaflet that we won't detail here.
-
-For further instructions on how to develop with JHipster, have a look at [Using JHipster in development][].
-
-### Using angular-cli
-
-You can also use [Angular CLI][] to generate some custom client code.
-
-For example, the following command:
-
-    ng generate component my-component
-
-will generate few files:
-
-    create src/main/webapp/app/my-component/my-component.component.html
-    create src/main/webapp/app/my-component/my-component.component.ts
-    update src/main/webapp/app/app.module.ts
-
-
-## Building for production
+# [Step 2] In One terminal window, run the server side
+```html
+<code>
+    ./mvnw
+</code>
+```
+# [Step 3] In another terminal window, run the client side
+```html
+<code>
+    yarn start
+</code>
+```
+# [Step 4] Building for production
 
 To optimize the blog application for production, run:
-
+```html
+To concatenate and minify the client CSS and JavaScript files, run the following command. It will also modify `index.html` so it references these new files.
+<code>
     ./mvnw -Pprod clean package
-
-This will concatenate and minify the client CSS and JavaScript files. It will also modify `index.html` so it references these new files.
+</code>
 To ensure everything worked, run:
-
+<code>
     java -jar target/*.war
+</code>
+```
 
-Then navigate to [http://localhost:8080](http://localhost:8080) in your browser.
+# [Step 5] Run the app
+```html
+<code>
+    Navigate to [http://localhost:8080](http://localhost:8080) in your browser.
+</code>
+```
 
-Refer to [Using JHipster in production][] for more details.
 
-## Testing
-
+# [Step 6] Server side Unit Testing
+```html
 To launch your application's tests, run:
-
+<code>
     ./mvnw clean test
+</code>
+```
 
-### Client tests
-
+# [Step 7] Client side Unit Testing
+```html
 Unit tests are run by [Jest][] and written with [Jasmine][]. They're located in [src/test/javascript/](src/test/javascript/) and can be run with:
-
+<code>
     yarn test
+</code>
+```
 
+# [Step 8] UI End to end Testing
+```html
 UI end-to-end tests are powered by [Protractor][], which is built on top of WebDriverJS. They're located in [src/test/javascript/e2e](src/test/javascript/e2e)
-and can be run by starting Spring Boot in one terminal (`./mvnw spring-boot:run`) and running the tests (`yarn run e2e`) in a second one.
-### Other tests
+and can be run by starting server side Spring Boot in one terminal 
+<code>
+    ./mvnw spring-boot:run 
+</code>
+and running the client tests in a second terminal 
+<code>
+    yarn run e2e
+</code>
+```
 
-Performance tests are run by [Gatling][] and written in Scala. They're located in [src/test/gatling](src/test/gatling).
+# Step 9: Continuous Integration
+To configure CI for your project, run the ci-cd sub-generator (`jhipster ci-cd`), this will let you generate configuration files for a number of Continuous Integration systems. Consult the [Setting up Continuous Integration][] page for more information.
 
-To use those tests, you must install Gatling from [https://gatling.io/](https://gatling.io/).
 
-For more information, refer to the [Running tests page][].
+
+# [Appendix] Dockerize
 
 ## Using Docker to simplify development (optional)
 
@@ -146,8 +113,7 @@ Then run:
 
 For more information refer to [Using Docker and Docker-Compose][], this page also contains information on the docker-compose sub-generator (`jhipster docker-compose`), which is able to generate docker configurations for one or several JHipster applications.
 
-## Continuous Integration (optional)
-
+# Continuous Integration (optional)
 To configure CI for your project, run the ci-cd sub-generator (`jhipster ci-cd`), this will let you generate configuration files for a number of Continuous Integration systems. Consult the [Setting up Continuous Integration][] page for more information.
 
 [JHipster Homepage and latest documentation]: https://www.jhipster.tech
