@@ -13,26 +13,79 @@ This application was generated using JHipster 5.0.1, you can find documentation 
 8. [SonarQube][] Download SonarQube from https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-7.4.zip/
 
 
-# [Step 1] Install required dependent packages
+# Step 1: Install required dependent packages
 ```html
 <code>
     yarn install
 </code>
 ```
 
-# [Step 2] In One terminal window, run the server side
+# Step 2: In One terminal window, run the server side
 ```html
 <code>
     ./mvnw
 </code>
 ```
-# [Step 3] In another terminal window, run the client side
+# Step 3: In another terminal window, run the client side
 ```html
 <code>
-    yarn start
+    yarn 
+    yarn webpack:build
 </code>
 ```
-# [Step 4] Building for production
+# Step 4: Run the app
+```html
+<code>
+    Navigate to [http://localhost:8080](http://localhost:8080) in your browser.
+</code>
+```
+
+
+# Step 5: Server side Unit Testing
+```html
+To launch your application's tests, run:
+<code>
+    ./mvnw clean test
+</code>
+```
+
+# Step 6: Client side Unit Testing
+```html
+Unit tests are run by [Jest][] and written with [Jasmine][]. They're located in [src/test/javascript/](src/test/javascript/) and can be run with:
+<code>
+    yarn test
+</code>
+```
+
+# Step 7: UI End to end Testing
+```html
+UI end-to-end tests are powered by [Protractor][], which is built on top of WebDriverJS. They're located in [src/test/javascript/e2e](src/test/javascript/e2e)
+and can be run by starting server side Spring Boot in one terminal 
+<code>
+    ./mvnw spring-boot:run 
+</code>
+and running the client tests in a second terminal 
+<code>
+    yarn run e2e
+</code>
+```
+
+# Step 8: Continuous Integration
+
+8a. Configure sonar installation -- see SonarQube.md for instructions
+8b. Run `jhipster ci-cd` (Note: jhipster supports multiple tools for CI-CD -- for now, choose the options below 
+    (Consult the [Setting up Continuous Integration][https://www.jhipster.tech/documentation-archive/v5.0.1/setting-up-ci/] page for more information).
+Jenkins pipeline
+Analyze code with sonar
+http://localhost:9011 as sonar server
+8c. Run the jenkins pipeline docker
+`docker-compose -f src/main/docker/jenkins.yml up -d`
+
+
+
+
+# [Appendix] 
+1. Building for production
 
 To optimize the blog application for production, run:
 ```html
@@ -46,49 +99,7 @@ To ensure everything worked, run:
 </code>
 ```
 
-# [Step 5] Run the app
-```html
-<code>
-    Navigate to [http://localhost:8080](http://localhost:8080) in your browser.
-</code>
-```
-
-
-# [Step 6] Server side Unit Testing
-```html
-To launch your application's tests, run:
-<code>
-    ./mvnw clean test
-</code>
-```
-
-# [Step 7] Client side Unit Testing
-```html
-Unit tests are run by [Jest][] and written with [Jasmine][]. They're located in [src/test/javascript/](src/test/javascript/) and can be run with:
-<code>
-    yarn test
-</code>
-```
-
-# [Step 8] UI End to end Testing
-```html
-UI end-to-end tests are powered by [Protractor][], which is built on top of WebDriverJS. They're located in [src/test/javascript/e2e](src/test/javascript/e2e)
-and can be run by starting server side Spring Boot in one terminal 
-<code>
-    ./mvnw spring-boot:run 
-</code>
-and running the client tests in a second terminal 
-<code>
-    yarn run e2e
-</code>
-```
-
-# Step 9: Continuous Integration
-To configure CI for your project, run the ci-cd sub-generator (`jhipster ci-cd`), this will let you generate configuration files for a number of Continuous Integration systems. Consult the [Setting up Continuous Integration][] page for more information.
-
-
-
-# [Appendix] Dockerize
+2. Dockerize
 
 ## Using Docker to simplify development (optional)
 
@@ -110,29 +121,3 @@ To achieve this, first build a docker image of your app by running:
 Then run:
 
     docker-compose -f src/main/docker/app.yml up -d
-
-For more information refer to [Using Docker and Docker-Compose][], this page also contains information on the docker-compose sub-generator (`jhipster docker-compose`), which is able to generate docker configurations for one or several JHipster applications.
-
-# Continuous Integration (optional)
-To configure CI for your project, run the ci-cd sub-generator (`jhipster ci-cd`), this will let you generate configuration files for a number of Continuous Integration systems. Consult the [Setting up Continuous Integration][] page for more information.
-
-[JHipster Homepage and latest documentation]: https://www.jhipster.tech
-[JHipster 5.0.1 archive]: https://www.jhipster.tech/documentation-archive/v5.0.1
-
-[Using JHipster in development]: https://www.jhipster.tech/documentation-archive/v5.0.1/development/
-[Using Docker and Docker-Compose]: https://www.jhipster.tech/documentation-archive/v5.0.1/docker-compose
-[Using JHipster in production]: https://www.jhipster.tech/documentation-archive/v5.0.1/production/
-[Running tests page]: https://www.jhipster.tech/documentation-archive/v5.0.1/running-tests/
-[Setting up Continuous Integration]: https://www.jhipster.tech/documentation-archive/v5.0.1/setting-up-ci/
-
-[Gatling]: http://gatling.io/
-[Node.js]: https://nodejs.org/
-[Yarn]: https://yarnpkg.org/
-[Webpack]: https://webpack.github.io/
-[Angular CLI]: https://cli.angular.io/
-[BrowserSync]: http://www.browsersync.io/
-[Jest]: https://facebook.github.io/jest/
-[Jasmine]: http://jasmine.github.io/2.0/introduction.html
-[Protractor]: https://angular.github.io/protractor/
-[Leaflet]: http://leafletjs.com/
-[DefinitelyTyped]: http://definitelytyped.org/

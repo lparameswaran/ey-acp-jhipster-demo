@@ -1,14 +1,14 @@
 {
   "generator-jhipster": {
     "promptValues": {
-      "packageName": "org.jhipster.blog",
+      "packageName": "com.ey.acp.blog",
       "nativeLanguage": "en"
     },
     "jhipsterVersion": "5.0.1",
     "applicationType": "monolith",
     "baseName": "blog",
-    "packageName": "org.jhipster.blog",
-    "packageFolder": "org/jhipster/blog",
+    "packageName": "com.ey.acp.blog",
+    "packageFolder": "com/ey/acp/blog",
     "serverPort": "8080",
     "authenticationType": "jwt",
     "cacheProvider": "ehcache",

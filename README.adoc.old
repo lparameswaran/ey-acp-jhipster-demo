@@ -1,127 +1,15 @@
 = Get Started with JHipster 5
-:author: Matt Raible
-:email:  matt@raibledesigns.com
-:revnumber: 1.0
-:revdate:   {docdate}
-:subject: JHipster
-:keywords: JHipster, Angular, Spring Boot, Bootstrap 4, JHipster 5, Angular 6
-:icons: font
-:lang: en
-:language: javadocript
-:sourcedir: .
-ifndef::env-github[]
-:icons: font
-endif::[]
-ifdef::env-github,env-browser[]
-:toc: preamble
-:toclevels: 2
-endif::[]
-ifdef::env-github[]
-:status:
-:outfilesuffix: .adoc
-:!toc-title:
-:caution-caption: :fire:
-:important-caption: :exclamation:
-:note-caption: :paperclip:
-:tip-caption: :bulb:
-:warning-caption: :warning:
-endif::[]
-:toc:
-
-This article shows you how to build a simple blog application with https://www.jhipster.tech/2018/06/23/jhipster-release-5.0.1.html[JHipster 5.0.1]. You can also https://www.youtube.com/watch?v=-VQ_SVkaXbs[watch a video of this tutorial on YouTube].
-
-ifdef::env-github[]
-TIP: It appears you're reading this document on GitHub. If you want a prettier view, install https://chrome.google.com/webstore/detail/asciidoctorjs-live-previe/iaalpfgpbocpdfblpnhhgllgbdbchmia[Asciidoctor.js Live Preview for Chrome], then view the https://raw.githubusercontent.com/mraible/jhipster5-demo/master/README.adoc[raw document]. Another option is to use the http://gist.asciidoctor.org/?github-mraible/jhipster5-demo//README.adoc[DocGist view].
-endif::[]
 
 .Source Code
 ****
-If you'd like to get right to it, the https://github.com/mraible/jhipster5-demo[source code for this application is on GitHub]. To run the app, use `yarn && yarn webpack:build && ./mvnw`. To test it, run `./mvnw test`. To run its end-to-end tests, run `./mvnw` in one terminal and `yarn e2e` in another.
-****
+If you'd like to get right to it, the https://github.com/lparameswaran/ey-acp-jhipster-demo[source code for this application is on GitHub]. 
 
-== What is JHipster?
+1. Clone this app using git clone https://github.com/lparameswaran/ey-acp-jhipster-demo.git
 
-JHipster is one of those open-source projects you stumble upon and immediately think, "`Of course!`" It combines three very successful frameworks in web development: Bootstrap, Angular, and Spring Boot. Bootstrap was one of the first dominant web-component frameworks. Its most substantial appeal was that it only required a bit of HTML and it worked! All the efforts we made in the Java community to develop web components were shown a better path by Bootstrap. It leveled the playing field in HTML/CSS development, much like Apple's Human Interface Guidelines did for iOS apps.
-
-Julien Dubois started JHipster in October 2013 (Julien's first commit was on https://github.com/jhipster/generator-jhipster/commit/c8630ab7af7b6a99db880b3b0e2403806b7d2436[October 21, 2013]). The first public release (version 0.3.1) launched on December 7, 2013. Since then, the project has had over 170 releases! It is an open-source, Apache 2.0-licensed project on GitHub. It has a core team of 17 developers and over 420 contributors. You can find its homepage at https://www.jhipster.tech/[www.jhipster.tech]. If you look at https://github.com/jhipster/generator-jhipster[the project on GitHub], you can see it's mostly written in JavaScript (33%) and Java (27%).
-
-At its core, JHipster is a http://yeoman.io/[Yeoman] generator. Yeoman is a code generator that you run with a `yo` command to generate complete applications or useful pieces of an application. Yeoman generators promote what the Yeoman team calls the "`Yeoman workflow`". This workflow is an opinionated client-side stack of tools that can help developers quickly build beautiful web applications. It takes care of providing everything needed to get working without the normal pains associated with a manual setup.
-
-JHipster 5 is the same JHipster many developers know and love, with a couple of bright and shiny new features: namely React, Angular 6, and Spring Boot 2 support.
-
-== Install JHipster 5
-
-The http://www.jhipster.tech/installation/[Installing JHipster] instructions show you all the tools you'll need to use a released version of JHipster.
-
-. Install Java 8 http://www.oracle.com/technetwork/java/javase/downloads/index.html[from Oracle].
-. Install Git from https://git-scm.com.
-. Install Node.js from http://nodejs.org. JHipster recommends using a LTS release.
-. Install Yarn using the https://yarnpkg.com/en/docs/install[Yarn installation instructions].
-. Run the following command to install JHipster.
-
+2. Install jhipster generator using --
     yarn global add generator-jhipster@5.0.1
-
-NOTE: If you're using npm, run `npm i -g --save-exact generator-jhipster@5.0.1`.
-
-== Create a Project
-
-To create a project, open a terminal window and create a directory. For example, `mkdir blog`. Navigate into the directory and run `jhipster`. You'll be prompted to answer a number of questions about the type of application you want to create and what features you'd like to include. The screenshot below shows the choices I made to create a simple blog application with Angular.
-
-.Generating the application
-image::static/generating-blog.png[Generating the application, 800, scaledwidth=100%]
-
-If you'd like to create the same application I did, you can place the following `.yo-rc.json` file in an empty directory and run `jhipster` in it. You won't be prompted to answer any questions because the answers are already in `.yo-rc.json`.
-
-[source,json]
-----
-{
-  "generator-jhipster": {
-    "promptValues": {
-      "packageName": "org.jhipster.blog",
-      "nativeLanguage": "en"
-    },
-    "jhipsterVersion": "5.0.1",
-    "applicationType": "monolith",
-    "baseName": "blog",
-    "packageName": "org.jhipster.blog",
-    "packageFolder": "org/jhipster/blog",
-    "serverPort": "8080",
-    "authenticationType": "jwt",
-    "cacheProvider": "ehcache",
-    "enableHibernateCache": true,
-    "websocket": false,
-    "databaseType": "sql",
-    "devDatabaseType": "h2Disk",
-    "prodDatabaseType": "postgresql",
-    "searchEngine": false,
-    "messageBroker": false,
-    "serviceDiscoveryType": false,
-    "buildTool": "maven",
-    "enableSwaggerCodegen": false,
-    "jwtSecretKey": "455e1315207269bf7ba9685bdba93b4ff0224ba0",
-    "clientFramework": "angularX",
-    "useSass": false,
-    "clientPackageManager": "yarn",
-    "testFrameworks": [
-      "protractor"
-    ],
-    "jhiPrefix": "jhi",
-    "enableTranslation": true,
-    "nativeLanguage": "en",
-    "languages": [
-      "en",
-      "es"
-    ]
-  }
-}
-----
-
-TIP: **What about React?** If you'd like to see how to use JHipster 5 to build a React + OAuth 2.0 / OIDC app, see https://developer.okta.com/blog/2018/06/25/react-spring-boot-photo-gallery-pwa[Build a Photo Gallery PWA with React, Spring Boot, and JHipster].
-
-The project creation process will take a couple of minutes to run, depending on your internet connection speed. When it's finished, you should see output like the following.
-
-.Generation success
-image::static/generation-success.png[Generation success, 800, scaledwidth=100%]
+OR
+    npm i -g --save-exact generator-jhipster@5.0.1
 
 Run `./mvnw` to start the application and navigate to http://localhost:8080 in your favorite browser. The first thing you'll notice is a dapper-looking fellow explaining how you can sign in or register.
 
