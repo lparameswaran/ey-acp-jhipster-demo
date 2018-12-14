@@ -18,15 +18,17 @@ This application was generated using JHipster 5.0.1, you can find documentation 
     yarn install
 ```
 
-# Step 2: In One terminal window, run the server side
-```html
-    ./mvnw
-```
-# Step 3: In another terminal window, run the client side
+# Step 2: In another terminal window, run the client side
 ```html
     yarn 
     yarn webpack:build
 ```
+
+# Step 3: In One terminal window, run the server side
+```html
+    ./mvnw
+```
+
 # Step 4: Run the app
 ```html
     Navigate to [http://localhost:8080](http://localhost:8080) in your browser.

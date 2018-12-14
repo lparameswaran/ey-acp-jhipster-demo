@@ -48,7 +48,7 @@ node {
     }
 
     stage('quality analysis') {
-        withSonarQubeEnv('http://localhost:9011') {
+        withSonarQubeEnv('http://localhost:9000') {
             sh "./mvnw sonar:sonar"
         }
     }
